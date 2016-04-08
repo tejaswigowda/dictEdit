@@ -1,17 +1,24 @@
 <!doctype html>
 <html>
 <head>
+<script src="vendor/jquery-2.2.1.min.js"> </script>
 <script src="src/dictedit.js"> </script>
 <link rel="stylesheet" type="text/css" href="src/dictedit.css">
 <script>
   var main = function(){
-    var de = dictedit.init("theTA", {"a": 1, "b":2});
+    // Basic usage; default options
+    dictedit.init("theTA");
+    // Custom options
+    dictedit.init("theTAHTMLattr", {"sep": "='", "delim":"' "});
   }
 </script>
 </head>
 
 <body onload='main()'>
+<h1> Basic Usage </h1>
 <textarea id='theTA'> </textarea>
+<h1> Second Example </h1>
+<textarea id='theTAHTMLattr'> </textarea>
 </body>
 
 </html>
