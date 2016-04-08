@@ -36,4 +36,6 @@ Can be used on any text area.
 
 
 ###Example 3: custom values
-
+```
+    dictedit.init("theTAInit", null,"background : red;color : white;border : 1px solid;");
+```
