@@ -1,11 +1,11 @@
 var dictedit = {
   value: function(id){
     var ta = document.getElementById(id);
-    return ta;
+    return ta.value;
   },
-  init: function(id, opts, rows){
+  init: function(id, opts, initValue){
     opts = opts || {};
-    rows = rows || [];
+    initValue = initValue || "";
     var ta = document.getElementById(id);
     var newNode = document.createElement("div");
     newNode.id = id + "_dictedit" //+ new Date().getTime();
@@ -18,8 +18,12 @@ var dictedit = {
     var sep = opts.sep || " : ";
     ta.dataset["dictedit_sep"] = sep;
     ta.dataset["dictedit_delim"] = delim;
+    var rows = initValue.split(delim)
     for(var i = 0; i < rows.length; i++){
-      dictedit.addRow();
+      if (rows[i].length > 0){
+        var x = rows[i].split(sep);
+        dictedit.addRow(id, x[0], x[1]);
+      }
     }
   },
   addRow: function(taID, a, b){
